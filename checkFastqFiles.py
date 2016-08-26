@@ -48,7 +48,7 @@ def checkFastqFile(fastq, outdir):
 					line = line.splitlines()[0]
 					length_sequence = len(line)
 	print fastq + ' -> ' + str(number_reads_components)
-	saveVariableToPickle(outdir, [os.path.basename(fastq), number_reads_components[0], number_reads_components[0] == number_reads_components[1] == number_reads_components[2] == number_reads_components[3]], os.path.basename(fastq))
+	saveVariableToPickle([os.path.basename(fastq), number_reads_components[0], number_reads_components[0] == number_reads_components[1] == number_reads_components[2] == number_reads_components[3]], outdir, os.path.basename(fastq))
 
 
 def runCheckFastq(args):
@@ -70,7 +70,7 @@ def runCheckFastq(args):
 			if file_found.endswith('.pkl'):
 				file_path = os.path.join(outdir, file_found)
 				sampleINFO = extractVariableFromPickle(file_path)
-				writer.write('\t'.join(sampleINFO) + '\n')
+				writer.write('\t'.join(map(str, sampleINFO)) + '\n')
 				os.remove(file_path)
 
 
