@@ -36,12 +36,13 @@ def checkFastqFile(fastq, outdir):
 					number_reads_components[2] += 1
 					plus_line = True
 				elif plus_line and not quality_line:
-					number_reads_components[3] += 1
-					quality_line = True
 					line = line.splitlines()[0]
 					if len(line) != length_sequence:
 						print 'Sequence length and quality length are not equal!'
 						break
+					else:
+						quality_line = True
+						number_reads_components[3] += 1
 				else:
 					number_reads_components[1] += 1
 					line = line.splitlines()[0]
