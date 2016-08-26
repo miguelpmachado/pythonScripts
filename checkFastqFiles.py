@@ -79,7 +79,7 @@ def main():
 	parser.add_argument('--version', help='Version information', action='version', version=str('%(prog)s v' + version))
 
 	parser_required = parser.add_argument_group('Required options')
-	parser_required.add_argument('-i', '--inputFastqFiles', nargs='+', type=argparse.FileType('r'), metavar='/path/to/reference/genome/fastq/file.fa', help='Path to FASTQ file or files (if more than one are provided, they must be separated by space)', required=True)
+	parser_required.add_argument('-i', '--inputFastqFiles', nargs='+', type=argparse.FileType('r'), metavar='/path/to/reference/genome/fastq/file.fq', help='Path to uncompressed FASTQ file or files (if more than one are provided, they must be separated by space)', required=True)
 	parser_optional = parser.add_argument_group('Facultative options')
 	parser_optional.add_argument('-o', '--outdir', type=str, metavar='/output/directory/', help='Path for output directory', required=False, default='.')
 	parser_optional.add_argument('-j', '--threads', metavar=('N'), type=int, help='Number of threads to be used', required=False, default=1)
