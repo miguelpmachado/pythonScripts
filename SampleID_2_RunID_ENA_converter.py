@@ -34,7 +34,12 @@ import sys
 import os
 
 
-version = '0.1'
+version = '0.2'
+
+
+def check_create_directory(directory):
+	if not os.path.isdir(directory):
+		os.makedirs(directory)
 
 
 def saveVariableToPickle(variableToStore, outdir, prefix):
@@ -160,10 +165,13 @@ def check_attributes_present(list_all_attributes, dict_sample_attributes):
 
 def run_SampleID_2_RunID_ENA_converter(args):
 	threads = args.threads
+
 	outdir = os.path.abspath(args.outdir)
+	check_create_directory(outdir)
+
 	inputSampleIDlist = args.inputSampleIDlist.name
 
-	with open(inputSampleIDlist, 'rt') as reader:
+	with open(inputSampleIDlist, 'rtU') as reader:
 		inputSampleIDlist = []
 		for line in reader:
 			if len(line) > 0:
