@@ -36,8 +36,8 @@ version = '0.1'
 
 
 def formartFastqHeaders(in_fastq_1, in_fastq_2, outdir):
-	out_fastq_1 = os.path.join(outdir, os.path.splitext(os.path.basename(in_fastq_1))[0] + '.headersRenamed.fq')
-	out_fastq_2 = os.path.join(outdir, os.path.splitext(os.path.basename(in_fastq_2))[0] + '.headersRenamed.fq')
+	out_fastq_1 = os.path.join(outdir, os.path.splitext(os.path.basename(in_fastq_1))[0] + '.headersRenamed_1.fq')
+	out_fastq_2 = os.path.join(outdir, os.path.splitext(os.path.basename(in_fastq_2))[0] + '.headersRenamed_2.fq')
 	writer_in_fastq_1 = open(out_fastq_1, 'wt')
 	writer_in_fastq_2 = open(out_fastq_2, 'wt')
 	outfiles = [out_fastq_1, out_fastq_2]
@@ -116,6 +116,7 @@ def main():
 
 	args = parser.parse_args()
 
+	print '\n' + 'STARTING renamePE_samtoolsFASTQ.py' + '\n'
 	start_time = time.time()
 
 	fastq_files = [os.path.abspath(args.fastq_1.name), os.path.abspath(args.fastq_2.name)]
