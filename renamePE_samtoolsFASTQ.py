@@ -118,7 +118,7 @@ def main():
 
 	start_time = time.time()
 
-	fastq_files = [os.path.abspath(args.fastq_1), os.path.abspath(args.fastq_2)]
+	fastq_files = [os.path.abspath(args.fastq_1.name), os.path.abspath(args.fastq_2.name)]
 
 	print 'Check if files are compressed' + '\n'
 	for fastq in fastq_files:
@@ -132,7 +132,7 @@ def main():
 	print 'Renaming fastq headers' + '\n'
 	number_reads, outfiles = formartFastqHeaders(fastq_files[0], fastq_files[1], outdir)
 
-	print 'It was written ' + number_reads + ' read pairs in ' + str(outfiles) + ' files' + '\n'
+	print 'It was written ' + str(number_reads) + ' read pairs in ' + str(outfiles) + ' files' + '\n'
 
 	print '\n' + 'END renamePE_samtoolsFASTQ.py'
 	time_taken = runTime(start_time)
