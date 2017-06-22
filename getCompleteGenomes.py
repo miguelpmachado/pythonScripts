@@ -5,7 +5,6 @@
 
 """
 getCompleteGenomes.py - Get Bacterial Complete Genomes from NCBI
-INNUca.py - INNUENDO quality control of reads, de novo assembly and contigs quality assessment, and possible contamination search
 <https://github.com/miguelpmachado/pythonScripts>
 
 Copyright (C) 2016 Miguel Machado <mpmachado@medicina.ulisboa.pt>
